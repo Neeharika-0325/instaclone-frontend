@@ -78,6 +78,13 @@ float: left;
 
 /* newpost style */
 
+.form-container{
+    margin: 30px auto;
+    padding-bottom: 20px;
+    border: 2px solid grey;
+    width: 50%;
+}
+
 #container{
     display: flex;
     flex-direction: column;
