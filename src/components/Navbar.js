@@ -7,7 +7,7 @@ export default function Navbar(){
     return <header>
         <nav id="page-nav">
             <div className="img-container">
-                <Link to='/'><img src={instalogo} type='png' alt="site-logo"/></Link>  
+                <Link to='/all'><img src={instalogo} type='png' alt="site-logo"/></Link>  
             </div>
             <div className="img-container">
                 <Link to='/new'><img src={camera} type="png" alt="camera-logo"/></Link>
