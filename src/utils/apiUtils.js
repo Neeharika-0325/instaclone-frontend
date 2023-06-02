@@ -1,4 +1,4 @@
-const Node_Api = "https://instaclone-back-end.onrender.com/"
+const Node_Api = "https://instaclone-back-end.onrender.com"
 const BASE_URL = Node_Api || "http://localhost:8080";
 
 export function getUserPosts(){
