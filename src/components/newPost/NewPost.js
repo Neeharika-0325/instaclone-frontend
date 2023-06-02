@@ -2,36 +2,46 @@ import React, { useContext, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Navbar from "../Navbar";
 import '../styles/styles.css'
-import { newPost } from "../../utils/apiUtils";
+import  {newPost} from "../../utils/apiUtils";
+import {PostList} from "../PostViewPage/Post";
+// import dotenv from 'dotenv';
+// dotenv.config();
 
+
+const random_number=  Math.floor(Math.random() * 1000) + 1;
 export default function NewPost(){
     const navigate = useNavigate();
+    const {addPost} = useContext(PostList);
     const [formData, setFormData] = useState({
         image: null,
         name: "",
         location: "",
         description: ""
     })
-    
-    function formHandler(e){
-        e.preventDefault()
-        console.log(formData)
-        newPost(formData).then(res => {
+    // console.log(formData)
+    function formHandler(event){
+        event.preventDefault()
+        const data = new FormData(event.target);
+        data.append("date", new Date().toDateString());
+        data.append("likes", random_number);
+        data.append("id", (""+ new Date().getTime()));
+        newPost(data).then(res => {
             if(res.status==="Success"){
-            // addPost(res.result);
+            addPost(res.record);
             setFormData({
                 image: null,
                 name: "",
                 location: "",
                 description: ""
             });
-            navigate('/all')
-            }   
-            else{
-
-            }
-            })
+            navigate("/all")
         }
+        else {
+            console.log("failed to load POST dat" );
+        }
+    });
+       
+    }
 
     return (
         <>
@@ -39,11 +49,10 @@ export default function NewPost(){
             <div className="form-container">
                 <form onSubmit={formHandler} id="container">
                     <input 
-                        type={"file"} 
-                        name="PostImage" 
-                        id="input_file" 
+                        type="file"
+                        name="image"
                         accept="image/*" 
-                        required={true}
+                        required
                         onChange={e=>{
                             setFormData(previous => {
                                 return {
@@ -54,11 +63,10 @@ export default function NewPost(){
                         }}
                     />
                     <input 
-                        type={"text"} 
-                        name="name" 
-                        id="input_author" 
+                        type="text"
+                        name="name"
                         placeholder="Author" 
-                        required={true}
+                        required
                         value={formData.name}
                         onChange={e=>{
                             setFormData(previous=>{
@@ -71,11 +79,10 @@ export default function NewPost(){
                         }}
                     />
                     <input 
-                        type={"text"} 
-                        name="location" 
-                        id="input_location" 
+                        type="text"
+                        name="location"
                         placeholder="Location" 
-                        required={true}
+                        required
                         value={formData.location}
                         onChange={e=>{
                             setFormData(previous=>{
@@ -88,11 +95,10 @@ export default function NewPost(){
                         }}
                     />
                     <input 
-                        type={"text"} 
+                        type="text"
                         name="description" 
-                        id="input_description" 
                         placeholder="Descirption" 
-                        required={true}
+                        required
                         value={formData.description}
                         onChange={e=>{
                             setFormData(previous=>{

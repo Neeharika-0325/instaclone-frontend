@@ -120,56 +120,45 @@ button{
     padding: 50px 0px;
 } */
 
+.list-post-container {
+    margin:10px;
+    flex-wrap: nowrap;
+    flex-direction: column;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+}
 .post-card{
-    /* margin-top: 40px; */
-    width: 300px;
-    min-height: 300px;
-    margin: 20px auto;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-shadow: 1px;
-
+    min-width: 300px
+}
+.dot {
+    font-size: 10px;
 }
 
-.post-card .card-header{
-    padding: 10px;
-    /* display: flex; */
-    position: relative;
-    /* justify-content: space-between; */
+.card-header, .card-footer .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
-
-.post-card .card-header .post-title{
-    /* float: left; */
-    font-weight: bold;
-}
-
-.post-card .card-header .post-location{
-    /* float: right; */
-    font-size: 12px;
-    color: #aaa;
-}
-
-.post-card .card-header .post-action{
-    position: absolute;
-    right: 13px;
-    top: 20px;
-    cursor:pointer;
-    /* float: right; */
-}
-
-.post-card .post-img img{
+.post-card .card-body img{
     max-width: 100%;
 }
+/* .card-body img {
+    max-width: 100%;
+    max-height: 270px;
+} */
 
-.post-card .card-footer{
-    padding: 10px;
+.card-footer img {
+    width: 20px;
+    height: 20px;
+} 
+.date {font-size: 12px;}
+
+
+.actions-icon{
+    display: flex;
 }
 
-.post-card .card-likes{
-    font-size: 12px;
-    color: #726f6f;
-    margin-bottom: 5px;
-}
-.post-card .card-description{
-    font-weight: 600;
+.padding-heart{
+    padding:10px;
 }

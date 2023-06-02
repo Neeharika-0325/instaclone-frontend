@@ -1,12 +1,14 @@
-const BASE_URL="http://localhost:8000";
 
-function getUserPosts(){
+const BASE_URL = process.env.Node_Api || "http://localhost:8080";
+
+export function getUserPosts(){
     return fetch(`${BASE_URL}/posts`)
     .then(res => res.json())
     .catch(err => alert(err.message));
 }
 
-function newPost(post){
+
+export function newPost(post) {
     return fetch(`${BASE_URL}/post`,{
         method : "POST",
         body : post
@@ -15,7 +17,7 @@ function newPost(post){
     .catch(err => alert(err.message));
 }
 
-export{
-    getUserPosts,
-    newPost
-}
+// export{
+//     getUserPosts,
+//     newPost
+// }
