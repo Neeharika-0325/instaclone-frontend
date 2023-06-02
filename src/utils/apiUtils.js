@@ -1,5 +1,5 @@
-
-const BASE_URL = process.env.Node_Api || "http://localhost:8080";
+const Node_Api = "https://instaclone-back-end.onrender.com/"
+const BASE_URL = Node_Api || "http://localhost:8080";
 
 export function getUserPosts(){
     return fetch(`${BASE_URL}/posts`)
