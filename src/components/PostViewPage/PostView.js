@@ -10,9 +10,8 @@ import Card from 'react-bootstrap/Card';
 // import Post from './Post'
 import { PostList } from "./Post";
 // const Node_Api=""
-// const BASE_URL = "http://localhost:8080" 
-const Node_Api = "https://instaclone-back-end.onrender.com"
-const BASE_URL = Node_Api || "http://localhost:8080";
+
+const BASE_URL = "https://instaclone-backend-74q8.onrender.com" 
 
 export default function PostView(){
     // const [userPost, setUserPost] = useState([])
@@ -44,6 +43,7 @@ export default function PostView(){
                                 </div>
                             </Card.Header>
                             <Card.Body className="card-body">
+                                {console.log(`${BASE_URL}/uploads/${post.image}`)}
                                 <img src={`${BASE_URL}/uploads/${post.image}`} alt="post-img" />
                             </Card.Body>
                             <Card.Footer className="card-footer">

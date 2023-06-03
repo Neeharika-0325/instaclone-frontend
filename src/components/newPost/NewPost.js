@@ -7,6 +7,8 @@ import {PostList} from "../PostViewPage/Post";
 // import dotenv from 'dotenv';
 // dotenv.config();
 
+const BASE_URL =  "https://instaclone-backend-74q8.onrender.com";
+
 
 const random_number=  Math.floor(Math.random() * 1000) + 1;
 export default function NewPost(){
@@ -47,7 +49,7 @@ export default function NewPost(){
         <>
             <Navbar/>
             <div className="form-container">
-                <form onSubmit={formHandler} id="container">
+                <form action ={BASE_URL+'/post'} encType='multipart/form-data' onSubmit={formHandler} id="container">
                     <input 
                         type="file"
                         name="image"
