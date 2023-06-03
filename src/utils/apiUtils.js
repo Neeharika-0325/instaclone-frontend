@@ -1,5 +1,6 @@
-// const node="https://instaclone-backend-74q8.onrender.com/" ||
+
 const BASE_URL = "https://instaclone-backend-74q8.onrender.com";
+
 
 export function getUserPosts(){
     return fetch(`${BASE_URL}/posts`)
